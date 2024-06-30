@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:13
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    environment:
+      - POSTGRES_PASSWORD=posgres  # Set a password for the superuser
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge
